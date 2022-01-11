@@ -1,3 +1,21 @@
-.card {
-  max-width: 500px;
+.product {
+  max-width: 600px;
+  background-color: brown;
+  height: 15rem;
+  display: flex;
+
+  margin-bottom: 20px;
+}
+
+.product--image {
+  width: 300px;
+}
+
+.product--image img {
+  height: 15rem;
+  width: 250px;
+}
+
+.product--info {
+  max-width: 300px;
 }
