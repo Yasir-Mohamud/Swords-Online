@@ -12,6 +12,7 @@ export default function Product(props) {
           alt="..."
         />
       </div>
+
       <div className="product--info">
         <h5>{props.product.name}</h5>
         <p>{props.product.description}</p>

@@ -24,7 +24,7 @@ export default function HomePage() {
     return <Product key={product._id} product={product} />;
   });
   return (
-    <div>
+    <div className="home">
       <div className="home--welcome--text">
         <p>
           Welcome to SWORDS ONLINE! Browse through our variety of swords from

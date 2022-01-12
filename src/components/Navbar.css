@@ -6,7 +6,7 @@
   padding-left: 4vw;
   display: flex;
   align-items: center;
-  color: white;
+  color: rgb(2, 250, 254);
 }
 .nav--left {
   /* background-color: rgb(97, 204, 54); */
@@ -38,5 +38,5 @@
 }
 
 .nav--span:hover {
-  background-color: yellow;
+  background-color: rgb(16, 115, 172);
 }

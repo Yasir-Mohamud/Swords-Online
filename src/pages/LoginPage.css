@@ -1,0 +1,37 @@
+.login {
+  background-color: beige;
+  height: 100vh;
+}
+
+.login--form {
+  background-color: rgba(0, 30, 60);
+  height: 30vh;
+  color: rgb(2, 250, 254);
+}
+
+.login--outer {
+  background-color: whitesmoke;
+  border: solid 3px black;
+  width: 600px;
+  height: 58vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: -150px;
+}
+
+.login--inner {
+  margin-top: 4rem;
+  width: 80%;
+  height: 55vh;
+  font-size: 20pt;
+  align-items: center;
+  text-align: center;
+}
+
+.login--inner > label {
+  margin-bottom: 3px;
+}
+.login--inner > input {
+  margin-bottom: 15px;
+  width: 100%;
+}

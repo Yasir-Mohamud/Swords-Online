@@ -1,4 +1,17 @@
+.home {
+  background-color: beige;
+}
+
+.home--welcome--text {
+  height: 50vh;
+  background-color: rgba(0, 30, 60);
+  color: rgb(2, 250, 254);
+  padding: 5rem;
+  font-size: 30pt;
+  font-weight: bolder;
+}
 .products {
+  padding-top: 2rem;
   display: flex;
   flex-wrap: wrap;
 }
