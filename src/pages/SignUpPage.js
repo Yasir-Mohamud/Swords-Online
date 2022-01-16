@@ -41,6 +41,9 @@ export default function SignUpPage() {
     // sends you back to the homepage
     // window.location = "/";
   }
+  const color = {
+    backgroundColor: "red",
+  };
   return (
     <div className="signUp">
       <div className="signUp--form"></div>
@@ -90,7 +93,11 @@ export default function SignUpPage() {
             onChange={handleChange}
           />
 
-          {user.password === user.confirmPassword && <button> SIGN UP </button>}
+          {user.password === user.confirmPassword ? (
+            <button style={color}> SIGN UP </button>
+          ) : (
+            <button> SIGN UP </button>
+          )}
         </form>
       </div>
     </div>
