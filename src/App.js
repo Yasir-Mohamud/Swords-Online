@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 //import profile from "./svgs/userProfile.svg";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ReceiptPage from "./pages/ReceiptPage";
@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import axios from "axios";
 
 export default function App() {
+  let navigate = useNavigate();
   const [user, setUser] = useState({
     id: "",
     username: "",
@@ -20,8 +21,6 @@ export default function App() {
     isLoggedIn: false,
     order: [],
   });
-
-  console.log(`user ${user}`);
 
   const [products, setProducts] = useState({
     allProducts: [],
@@ -69,11 +68,12 @@ export default function App() {
         }
       })
       .catch((error) => console.log(`ERROR ${error}`));
-    window.location("/");
+
+    navigate("/");
   }
 
   return (
-    <BrowserRouter>
+    <main>
       <Navbar user={user} />
       <Routes>
         <Route
@@ -95,6 +95,6 @@ export default function App() {
         />
         <Route path="/signUp" element={<SignUpPage />} />
       </Routes>
-    </BrowserRouter>
+    </main>
   );
 }

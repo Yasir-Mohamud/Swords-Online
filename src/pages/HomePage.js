@@ -7,6 +7,7 @@ export default function HomePage(props) {
   const allProducts = props.products.map((product) => {
     return <Product key={product._id} product={product} />;
   });
+
   return (
     <div className="home">
       <div className="home--welcome--text">
