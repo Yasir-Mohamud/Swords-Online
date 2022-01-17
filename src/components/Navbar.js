@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../svgs/swordsonlineLOGO.png";
 import "./Navbar.css";
 
-export default function Navbar() {
+export default function Navbar(props) {
   let navigate = useNavigate();
   return (
     <nav className="nav">
@@ -22,12 +22,18 @@ export default function Navbar() {
         <span className="nav--span" onClick={() => navigate("/cart")}>
           Cart
         </span>
-        <span className="nav--span" onClick={() => navigate("/login")}>
-          Login
-        </span>
-        <span className="nav--span" onClick={() => navigate("/signUp")}>
-          Sign Up
-        </span>
+        {props.user.isLoggedIn === true ? (
+          <button> LOG OUT </button>
+        ) : (
+          <span>
+            <span className="nav--span" onClick={() => navigate("/login")}>
+              Login
+            </span>
+            <span className="nav--span" onClick={() => navigate("/signUp")}>
+              Sign Up
+            </span>
+          </span>
+        )}
       </div>
     </nav>
   );

@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Product from "../components/Product";
-import axios from "axios";
+
 import "./HomePage.css";
 
 export default function HomePage(props) {
-  // const [productsData, setProductsData] = useState({
-  //   products: [],
-  // });
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:4000/products/")
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       setProductsData({
-  //         products: response.data,
-  //       });
-  //     })
-  //     .catch((error) => console.log(`ERROR ${error}`));
-  // }, []);
-
   const allProducts = props.products.map((product) => {
     return <Product key={product._id} product={product} />;
   });
