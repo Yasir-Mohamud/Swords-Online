@@ -65,16 +65,24 @@ export default function App() {
               id: response.data._id,
             };
           });
+          navigate("/");
         }
       })
       .catch((error) => console.log(`ERROR ${error}`));
+  }
 
-    navigate("/");
+  function handleLogOut() {
+    setUser((prev) => {
+      return {
+        ...prev,
+        isLoggedIn: false,
+      };
+    });
   }
 
   return (
     <main>
-      <Navbar user={user} />
+      <Navbar user={user} handleLogOut={handleLogOut} />
       <Routes>
         <Route
           path="/"

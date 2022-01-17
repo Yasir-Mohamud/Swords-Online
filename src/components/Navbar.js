@@ -23,7 +23,7 @@ export default function Navbar(props) {
           Cart
         </span>
         {props.user.isLoggedIn === true ? (
-          <button> LOG OUT </button>
+          <button onClick={props.handleLogOut}> LOG OUT </button>
         ) : (
           <span>
             <span className="nav--span" onClick={() => navigate("/login")}>
