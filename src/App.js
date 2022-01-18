@@ -86,25 +86,12 @@ export default function App() {
     axios
       .get("http://localhost:4000/products/" + id)
       .then((response) => {
-        setCart((prev) => {
-          const newCart = [...prev];
-          console.log(prev.length);
-          if (prev.length === 0) {
-            newCart.push(response.data);
-          } else {
-            for (let i = 0; i < prev.length; i++) {
-              console.log(prev[i]);
-              let currentCart = prev[i];
-              if (currentCart._id !== response.data._id) {
-                const up = [...currentCart, response.data];
-                newCart.push(up);
-              } else {
-                console.log("already added");
-              }
-            }
-          }
-          return newCart;
-        });
+        let cartId = cart.map((c) => c._id);
+        if (cartId.includes(response.data._id) !== true) {
+          setCart((prev) => {
+            return [...prev, response.data];
+          });
+        }
       })
       .catch((error) => console.log(`ERROR ${error}`));
   }

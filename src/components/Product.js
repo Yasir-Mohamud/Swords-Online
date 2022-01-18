@@ -2,7 +2,6 @@ import React from "react";
 import "./Product.css";
 
 export default function Product(props) {
-  console.log(props);
   return (
     <div className="product">
       <div className="product--image">
