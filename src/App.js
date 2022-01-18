@@ -26,6 +26,8 @@ export default function App() {
     allProducts: [],
   });
 
+  const [cart, setCart] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:4000/products/")
@@ -80,15 +82,47 @@ export default function App() {
     });
   }
 
+  function handleClick(id) {
+    axios
+      .get("http://localhost:4000/products/" + id)
+      .then((response) => {
+        setCart((prev) => {
+          const newCart = [...prev];
+          console.log(prev.length);
+          if (prev.length === 0) {
+            newCart.push(response.data);
+          } else {
+            for (let i = 0; i < prev.length; i++) {
+              console.log(prev[i]);
+              let currentCart = prev[i];
+              if (currentCart._id !== response.data._id) {
+                const up = [...currentCart, response.data];
+                newCart.push(up);
+              } else {
+                console.log("already added");
+              }
+            }
+          }
+          return newCart;
+        });
+      })
+      .catch((error) => console.log(`ERROR ${error}`));
+  }
+
   return (
     <main>
       <Navbar user={user} handleLogOut={handleLogOut} />
       <Routes>
         <Route
           path="/"
-          element={<HomePage products={products.allProducts} />}
+          element={
+            <HomePage
+              products={products.allProducts}
+              handleClick={handleClick}
+            />
+          }
         />
-        <Route path="/cart" element={<CartPage />} />
+        <Route path="/cart" element={<CartPage cart={cart} />} />
         <Route path="/receipt" element={<ReceiptPage />} />
         <Route
           path="/login"

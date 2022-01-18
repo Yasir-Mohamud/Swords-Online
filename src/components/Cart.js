@@ -1,8 +1,7 @@
 import React from "react";
-import "./Product.css";
 
 export default function Product(props) {
-  console.log(props);
+  console.log(`caart ${props}`);
   return (
     <div className="product">
       <div className="product--image">
@@ -17,9 +16,17 @@ export default function Product(props) {
         <h5>{props.product.name}</h5>
         <p>{props.product.description}</p>
         <p>$ {props.product.price}</p>
-        <button onClick={() => props.handleClick(props.product._id)}>
-          Add To Cart
-        </button>
+      </div>
+      <div>
+        <div>
+          <label> Quantity </label>
+          <br></br>
+          <input />
+          <br></br>
+        </div>
+
+        <div className="total">Total</div>
+        <button> PURCHASE </button>
       </div>
     </div>
   );
