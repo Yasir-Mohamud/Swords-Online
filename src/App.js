@@ -109,7 +109,10 @@ export default function App() {
             />
           }
         />
-        <Route path="/cart" element={<CartPage cart={cart} />} />
+        <Route
+          path="/cart"
+          element={<CartPage key={cart.length} cart={cart} />}
+        />
         <Route path="/receipt" element={<ReceiptPage />} />
         <Route
           path="/login"
