@@ -96,6 +96,30 @@ export default function App() {
       .catch((error) => console.log(`ERROR ${error}`));
   }
 
+  function handleCart(event) {
+    const { name, value, id } = event.target;
+    console.log(name);
+    console.log(id);
+
+    setCart((prev) => {
+      const newArr = [];
+      for (let i = 0; i < prev.length; i++) {
+        let current = prev[i];
+        if (current._id === id) {
+          const u = {
+            ...current,
+            [name]: value,
+            total: current.price * value,
+          };
+          newArr.push(u);
+        } else {
+          newArr.push(current);
+        }
+      }
+      return newArr;
+    });
+  }
+
   return (
     <main>
       <Navbar user={user} handleLogOut={handleLogOut} />
@@ -111,7 +135,9 @@ export default function App() {
         />
         <Route
           path="/cart"
-          element={<CartPage key={cart.length} cart={cart} />}
+          element={
+            <CartPage key={cart.length} cart={cart} handleCart={handleCart} />
+          }
         />
         <Route path="/receipt" element={<ReceiptPage />} />
         <Route

@@ -1,0 +1,38 @@
+.all {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 15rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.cartProduct {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: burlywood;
+  border: solid 2px black;
+}
+
+.cartProduct--image {
+  height: 15rem;
+  width: 15rem;
+}
+.cartProduct--image > img {
+  width: 15rem;
+  height: 100%;
+}
+
+.cartProduct--info {
+  width: 50vw;
+
+  font-size: 24pt;
+}
+
+.cartProduct--info > p {
+  margin-left: 30px;
+}
+
+.cartProduct--total {
+  font-size: 20pt;
+  line-height: 3rem;
+}

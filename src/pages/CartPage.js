@@ -8,20 +8,32 @@ export default function CartPage(props) {
       <Cart
         key={cartProduct._id}
         cartProduct={cartProduct}
-        getTotal={getTotal}
+        handleCart={props.handleCart}
       />
     );
   });
 
-  function getTotal(total) {
-    console.log(total);
-  }
-
+  const total = props.cart.map((product) => product.total);
+  console.log(total);
+  const getTotal = () => {
+    let num = 0;
+    total.forEach((element) => {
+      return (num = num + element);
+    });
+    return num;
+  };
   return (
     <div className="cart-page">
-      <div>{cartProducts}</div>
-      <div> TOTAL : </div>
-      <button> PURCHASE</button>
+      {cartProducts.length === 0 ? (
+        <div className="center"> Your Cart Is Empty!</div>
+      ) : (
+        <div>
+          ({cartProducts}
+          <div className="bottom">
+            <button> PURCHASE ${getTotal()} </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

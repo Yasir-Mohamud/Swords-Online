@@ -9,6 +9,8 @@ router.route("/add").post((request, response) => {
     price: Number(request.body.price),
     description: request.body.description,
     imageURL: request.body.imageURL,
+    quantity: Number(request.body.quantity),
+    total: Number(request.body.total),
   });
 
   newProduct
@@ -39,6 +41,8 @@ router.route("/update/:id").post((request, response) => {
       product.price = Number(request.body.price);
       product.description = request.body.description;
       product.imageURL = request.body.imageURL;
+      product.quantity = Number(request.body.quantity);
+      product.total = Number(request.body.total);
 
       product
         .save()

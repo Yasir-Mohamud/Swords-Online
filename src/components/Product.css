@@ -1,22 +1,32 @@
 .product {
   border: 1px solid black;
-  max-width: 700px;
+  width: 700px;
   background-color: burlywood;
   height: 18rem;
   display: flex;
-
   margin-bottom: 20px;
 }
 
 .product--image {
   width: 300px;
+  height: 18rem;
 }
 
 .product--image img {
-  height: 18rem;
-  width: 250px;
+  height: 100%;
+  width: 100%;
 }
 
 .product--info {
-  max-width: 300px;
+  max-width: 400px;
+  font-size: 18pt;
+}
+
+.product--info > p {
+  margin-left: 15px;
+}
+
+.product--info > button {
+  margin-left: 40px;
+  width: 80%;
 }
