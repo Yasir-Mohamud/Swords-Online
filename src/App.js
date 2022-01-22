@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-//import profile from "./svgs/userProfile.svg";
 import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
-import ReceiptPage from "./pages/ReceiptPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import Navbar from "./components/Navbar";
@@ -22,9 +19,7 @@ export default function App() {
     order: [],
   });
 
-  const [products, setProducts] = useState({
-    allProducts: [],
-  });
+  const [products, setProducts] = useState([]);
 
   const [cart, setCart] = useState([]);
 
@@ -32,9 +27,7 @@ export default function App() {
     axios
       .get("http://localhost:4000/products/")
       .then((response) => {
-        setProducts({
-          allProducts: response.data,
-        });
+        setProducts(response.data);
       })
       .catch((error) => console.log(`ERROR ${error}`));
   }, []);
@@ -98,8 +91,6 @@ export default function App() {
 
   function handleCart(event) {
     const { name, value, id } = event.target;
-    console.log(name);
-    console.log(id);
 
     setCart((prev) => {
       const newArr = [];
@@ -126,12 +117,7 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <HomePage
-              products={products.allProducts}
-              handleClick={handleClick}
-            />
-          }
+          element={<HomePage products={products} handleClick={handleClick} />}
         />
         <Route
           path="/cart"
@@ -139,7 +125,7 @@ export default function App() {
             <CartPage key={cart.length} cart={cart} handleCart={handleCart} />
           }
         />
-        <Route path="/receipt" element={<ReceiptPage />} />
+
         <Route
           path="/login"
           element={

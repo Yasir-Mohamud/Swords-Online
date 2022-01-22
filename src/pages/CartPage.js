@@ -13,8 +13,9 @@ export default function CartPage(props) {
     );
   });
 
+  //gets all the total prices of all products in and array
   const total = props.cart.map((product) => product.total);
-  console.log(total);
+  // adds up the totals from the total aray
   const getTotal = () => {
     let num = 0;
     total.forEach((element) => {
